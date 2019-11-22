@@ -1,9 +1,296 @@
 {
-  "links": [],
-  "nodes": [],
+  "links": [
+    {
+      "id": "86951d9e-c35d-4186-946a-091ecbb134c9",
+      "from": "46983411-13ea-425f-add2-2b4dbd4ddbc6",
+      "to": "a9d017a7-76e5-4424-b5cd-665752a80e6c"
+    },
+    {
+      "id": "ff0df615-12dd-4938-9d66-10bfd325d47c",
+      "from": "bf3a2f39-c978-4917-90a0-096c55701f7a",
+      "to": "faa48257-1f68-4b9a-8f89-9a13dc0d8745"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "aa532343-81e4-40e5-8f2a-5efaf45b1062",
+      "name": "io_select_files",
+      "class": "io.SelectFiles",
+      "ports": [
+        {
+          "base": "base_directory",
+          "code": [
+            {
+              "language": "Nipype",
+              "argument": {
+                "name": "base_directory"
+              }
+            }
+          ],
+          "editable": true,
+          "id": "0d130489-5494-4e37-8c4d-7224cdd02cec",
+          "input": true,
+          "inputPort": "3a7ce6ae-40f6-40d5-a313-a850c29a34a3",
+          "name": "base_directory",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "anat",
+          "editable": true,
+          "id": "eb7ac12e-15a5-4a54-bfe4-92c7ef4be5a5",
+          "input": true,
+          "inputPort": "84abe2e4-ebf4-4645-b768-5fafcbe6f0fb",
+          "name": "anat",
+          "output": true,
+          "outputPort": "46983411-13ea-425f-add2-2b4dbd4ddbc6",
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "sub_id",
+          "editable": true,
+          "id": "775d6906-c96d-4d37-a0b3-94358aa7a6ab",
+          "input": true,
+          "inputPort": "abacc5ad-8a1b-4bc7-a194-d3463ff783c6",
+          "name": "sub_id",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        }
+      ],
+      "position": [
+        65.7641190022278,
+        171.67614672041356
+      ],
+      "code": [
+        {
+          "language": "Nipype",
+          "comment": "Flexibly collect data from disk to feed into workflows.",
+          "argument": {
+            "name": "io.SelectFiles()",
+            "import": "import nipype.interfaces.io as io"
+          }
+        },
+        {
+          "language": "Docker",
+          "argument": {
+            "name": "io"
+          }
+        }
+      ],
+      "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html#selectfiles",
+      "colour": "#fe334e"
+    },
+    {
+      "id": "39c8422d-e87a-41d8-ab3c-1006ce113904",
+      "name": "fsl_bet",
+      "class": "fsl.BET",
+      "ports": [
+        {
+          "base": "in_file",
+          "code": [
+            {
+              "language": "Nipype",
+              "argument": {
+                "name": "in_file"
+              }
+            }
+          ],
+          "editable": false,
+          "id": "6b8e5651-5ea4-453d-b8b3-52435e2b151c",
+          "input": true,
+          "inputPort": "a9d017a7-76e5-4424-b5cd-665752a80e6c",
+          "name": "in_file",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "frac",
+          "code": [
+            {
+              "language": "Nipype",
+              "argument": {
+                "name": "frac"
+              }
+            }
+          ],
+          "editable": true,
+          "id": "41bd3ea7-a694-459c-b002-970647b51a0a",
+          "input": true,
+          "inputPort": "939ee2a6-709c-403d-a81f-892e418c6456",
+          "name": "frac",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "out_file",
+          "code": [
+            {
+              "language": "Nipype",
+              "argument": {
+                "name": "out_file"
+              }
+            }
+          ],
+          "editable": false,
+          "id": "cb19f6a9-8ce6-4f2a-ae91-d293b99ea0ea",
+          "input": false,
+          "inputPort": false,
+          "name": "out_file",
+          "output": true,
+          "outputPort": "bf3a2f39-c978-4917-90a0-096c55701f7a",
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "mask_file",
+          "code": [
+            {
+              "language": "Nipype",
+              "argument": {
+                "name": "mask_file"
+              }
+            }
+          ],
+          "editable": false,
+          "id": "a523ba95-4798-491a-956b-ee6b423a8439",
+          "input": false,
+          "inputPort": false,
+          "name": "mask_file",
+          "output": true,
+          "outputPort": "0f4b7d4c-8add-482d-9ada-4353d40de1ea",
+          "value": "",
+          "visible": true,
+          "iterator": false
+        }
+      ],
+      "position": [
+        367.9140930175781,
+        153.62188720703125
+      ],
+      "code": [
+        {
+          "language": "Nipype",
+          "comment": "Wraps the executable command ``bet``.",
+          "argument": {
+            "name": "fsl.BET()",
+            "import": "import nipype.interfaces.fsl as fsl"
+          }
+        },
+        {
+          "language": "Docker",
+          "argument": {
+            "name": "fsl"
+          }
+        }
+      ],
+      "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/interfaces.fsl/preprocess.html#bet",
+      "colour": "#fe3948"
+    },
+    {
+      "id": "8bc9ffe6-9cf9-4956-b2c7-02e3c99c498f",
+      "name": "io_data_sink",
+      "class": "io.DataSink",
+      "ports": [
+        {
+          "base": "base_directory",
+          "code": [
+            {
+              "language": "Nipype",
+              "argument": {
+                "name": "base_directory"
+              }
+            }
+          ],
+          "editable": true,
+          "id": "256ecc28-6a35-4855-9eb8-80875bf807e9",
+          "input": true,
+          "inputPort": "df59dc3e-bb6a-424d-819f-b67880acffb1",
+          "name": "base_directory",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "parameterization",
+          "code": [
+            {
+              "language": "Nipype",
+              "argument": {
+                "name": "parameterization"
+              }
+            }
+          ],
+          "editable": true,
+          "id": "487902ca-d8a7-4622-9cb7-06a4c8ec9cde",
+          "input": true,
+          "inputPort": "75e9b4eb-4a7b-488d-a72f-0eeaa120b859",
+          "name": "parameterization",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "BET_results",
+          "editable": false,
+          "id": "a46fec39-0bed-484c-be7a-6841f8f195e6",
+          "input": true,
+          "inputPort": "faa48257-1f68-4b9a-8f89-9a13dc0d8745",
+          "name": "BET_results",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        }
+      ],
+      "position": [
+        623.9098589118256,
+        147.0135773439436
+      ],
+      "code": [
+        {
+          "language": "Nipype",
+          "comment": "Generic datasink module to store structured outputs",
+          "argument": {
+            "name": "io.DataSink()",
+            "import": "import nipype.interfaces.io as io"
+          }
+        },
+        {
+          "language": "Docker",
+          "argument": {
+            "name": "io"
+          }
+        }
+      ],
+      "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html#datasink",
+      "colour": "#fe334e"
+    }
+  ],
   "stickies": [],
   "ui": {
-    "showToolboxes": []
+    "showToolboxes": [
+      "Nipype"
+    ]
   },
   "version": "v1"
 }
